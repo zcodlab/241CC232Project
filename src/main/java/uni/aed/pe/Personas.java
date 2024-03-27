@@ -5,6 +5,7 @@
 package uni.aed.pe;
 
 /**
+ * Prueba de Entrada 241
  * Clase que permite realizar operaciones con la clase persona, como: 
  * insertarPersonas y calcular su edad promedio
  * @author uni.cc232

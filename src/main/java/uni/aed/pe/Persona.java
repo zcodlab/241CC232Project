@@ -5,6 +5,7 @@
 package uni.aed.pe;
 
 /**
+ * Prueba de Entrada 241
  * Clase persona con variables y metodos getters y setters
  * @author uni.cc232
  */

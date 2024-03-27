@@ -5,10 +5,11 @@
 package uni.aed.pe;
 
 /**
- * Programa que permite registrar tres personas y calcular sus edad promedio
+ * Prueba de Entrada 241
+ * Programa que que permite registrar tres personas y calcular sus edad promedio
  * @author uni.cc232
  */
-public class TestPersonas {
+public class PersonasMain {
     public static void main(String[] args){        
         Personas personal=new Personas(4);
         Persona p1=new Persona("Sonya Smith",30,'F');

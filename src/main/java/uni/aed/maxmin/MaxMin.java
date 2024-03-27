@@ -1,5 +1,8 @@
 package uni.aed.maxmin;
-
+/**
+ * Algoritmo que determina el Maximo y Minimo de una lista de numeros enteros
+ * @author uni.cc232
+ */
 public class MaxMin {    
     
     public Integer getMaxValor(Integer[] X){

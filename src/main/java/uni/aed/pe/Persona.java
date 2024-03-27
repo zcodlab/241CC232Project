@@ -5,8 +5,8 @@
 package uni.aed.pe;
 
 /**
- *
- * @author hp
+ * Clase persona con variables y metodos getters y setters
+ * @author uni.cc232
  */
 public class Persona {
     private String nombre; 

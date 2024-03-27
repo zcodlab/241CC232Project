@@ -5,8 +5,8 @@
 package uni.aed.pe;
 
 /**
- *
- * @author hp
+ * Programa que permite registrar tres personas y calcular sus edad promedio
+ * @author uni.cc232
  */
 public class TestPersonas {
     public static void main(String[] args){        

@@ -5,8 +5,9 @@
 package uni.aed.pe;
 
 /**
- *
- * @author hp
+ * Clase que permite realizar operaciones con la clase persona, como: 
+ * insertarPersonas y calcular su edad promedio
+ * @author uni.cc232
  */
 public class Personas {
     Persona[] personas;

@@ -14,7 +14,13 @@ public class Sort {
     }
     @Override
     public String toString() {
-        return "Sort{" + "Y=" + Y + '}';
+        String result="";        
+        for(Integer y: Y)
+            if (result.length()==0)
+                result=y.toString();
+            else
+                result=result+","+y.toString();        
+        return result;
     }
     
     public Integer[] insercionSort(){

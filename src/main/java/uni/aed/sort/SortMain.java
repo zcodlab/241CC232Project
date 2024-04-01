@@ -8,10 +8,10 @@ public class SortMain {
         visualizar();
         insercionSort();
         visualizar();
-        selectionWuSort();
-        visualizar();
-        bubbleWuSort();
-        visualizar();
+//        selectionWuSort();
+//        visualizar();
+//        bubbleWuSort();
+//        visualizar();
     }
     public static void carga(){
         Integer X[]={5,14,24,39,43,65,84,45};
@@ -24,7 +24,7 @@ public class SortMain {
     public static void insercionSort(){
         for(Integer y: sort.insercionSort())
             System.out.print(y.toString()+ ","); 
-        System.out.println("");
+        System.out.println(" nComp= "+sort.getnComp()+" nInt= "+sort.getnInt()+" tEjec(ns)= "+ sort.gettEjec());
     }
     public static void selectionWuSort(){
         for(Integer y: sort.selectionWuSort())

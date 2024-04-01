@@ -10,7 +10,7 @@ public class SortMain {
         visualizar();
         selectionWuSort();
         visualizar();
-        bubbleWuSort();
+        //bubbleWuSort();
         visualizar();
     }
     public static void carga(){
@@ -31,10 +31,10 @@ public class SortMain {
             System.out.print(y.toString()+ ",");   
         System.out.println("");
     }        
-    public static void bubbleWuSort(){
-        for(Integer y: sort.bubbleWuSort())
-            System.out.print(y.toString()+ ",");   
-        System.out.println("");
-    }            
+//    public static void bubbleWuSort(){
+//        for(Integer y: sort.bubbleWuSort())
+//            System.out.print(y.toString()+ ",");   
+//        System.out.println("");
+//    }            
     
 }

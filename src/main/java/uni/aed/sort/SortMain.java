@@ -10,6 +10,8 @@ public class SortMain {
         visualizar();
         selectionWuSort();
         visualizar();
+        bubbleWuSort();
+        visualizar();
     }
     public static void carga(){
         Integer X[]={5,14,24,39,43,65,84,45};
@@ -28,6 +30,11 @@ public class SortMain {
         for(Integer y: sort.selectionWuSort())
             System.out.print(y.toString()+ ",");   
         System.out.println("");
-    }    
+    }        
+    public static void bubbleWuSort(){
+        for(Integer y: sort.bubbleWuSort())
+            System.out.print(y.toString()+ ",");   
+        System.out.println("");
+    }            
     
 }

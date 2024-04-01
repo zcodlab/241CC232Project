@@ -42,9 +42,20 @@ public class Sort {
         }//end for
         return X;
     }
-
-    
-    
-        
+    public Integer[] selectionWuSort(){
+        Integer[] X=getY().clone();
+        int startIndex, minIndex, lenght, temp;
+        lenght=X.length;
+        for(startIndex=0;startIndex<=lenght-2;startIndex++){
+            minIndex=startIndex;
+            for(int i=startIndex+1; i<=lenght-1;i++){
+                if(X[i]<X[minIndex])minIndex=i;
+            }
+            temp=X[startIndex];
+            X[startIndex]=X[minIndex];
+            X[minIndex]=temp;            
+        }
+        return X;
+    }   
     
 }

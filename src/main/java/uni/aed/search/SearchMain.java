@@ -17,7 +17,7 @@ public class SearchMain {
         Integer X[]={15,1,25,60,69,86,3,78,2,10};
         System.out.println("Ingrese el valor a buscar:");
         int valor =scr.nextInt();
-        int pos=s.Lineal(X, valor);        
+        int pos=s.searchLineal(X, valor);        
         if (pos==-1)
             System.out.println("El numero " + valor + " no existe en la lista");
         else

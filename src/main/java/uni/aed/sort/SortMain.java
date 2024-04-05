@@ -6,8 +6,9 @@ public class SortMain {
     public static void main(String[] args){
         carga();
         visualizar();
-        insercionSort();
-        visualizar();
+        heapSort();
+//        insercionSort();
+//        visualizar();
 //        selectionWuSort();
 //        visualizar();
 //        bubbleWuSort();
@@ -33,6 +34,12 @@ public class SortMain {
     }        
     public static void bubbleWuSort(){
         for(Integer y: sort.bubbleWuSort())
+            System.out.print(y.toString()+ ",");   
+        System.out.println("");
+    }            
+    
+    public static void heapSort(){
+        for(Integer y: sort.heapSort())
             System.out.print(y.toString()+ ",");   
         System.out.println("");
     }            

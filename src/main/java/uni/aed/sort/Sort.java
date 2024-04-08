@@ -223,11 +223,11 @@ public class Sort {
         if(n<2) return X;
         int mid=n/2;
         Integer[] left=new Integer[mid];
-        Integer[] right=new Integer[n-mid];
+        Integer[] right=new Integer[n - mid];
         for(int i=0;i<mid;i++)
             left[i]=X[i];
         for(int i=mid;i<n;i++)
-            right[i]=X[i];
+            right[i - mid]=X[i];
         MergeSort(left);
         MergeSort(right);
         Merge(X,left,right);
@@ -252,7 +252,7 @@ public class Sort {
             i++;
             k++;
         }
-        while(i<nR){
+        while(j<nR){
             X[k]=right[j];
             j++;
             k++;

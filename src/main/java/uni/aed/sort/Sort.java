@@ -188,4 +188,30 @@ public class Sort {
         return Y;
     }
     
+    public Integer[] CallQuickSort(){
+        Integer[] X=getY().clone();
+        return QuickSort(X,0, X.length);
+    }
+    
+    private Integer[] QuickSort(Integer[] X, int start,int end){
+        if(start<end){
+            int pIndex=QuickSortPartition(X,start,end);
+            QuickSort(X, start, pIndex);
+            QuickSort(X, pIndex + 1, end);
+        }
+        return X;
+    }
+    private int QuickSortPartition(Integer[] X, int start,int end){
+        int pivot=X[end];
+        int pIndex=start;
+        for(int i=start;i<end;i++){
+            if(X[i]<=pivot){
+                intercambio(X,i,pIndex);
+                pIndex++;
+            }//end if
+        }//end for
+        intercambio(X,pIndex,end);
+        return pIndex;
+    }
+    
 }

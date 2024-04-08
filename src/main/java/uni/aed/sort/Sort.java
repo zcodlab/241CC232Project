@@ -214,4 +214,48 @@ public class Sort {
         return pIndex;
     }
     
+    public Integer[] CallMergeSort(){
+        Integer[] X=getY().clone();
+        return MergeSort(X);
+    }
+    private Integer[] MergeSort(Integer[] X){
+        int n=X.length;
+        if(n<2) return X;
+        int mid=n/2;
+        Integer[] left=new Integer[mid];
+        Integer[] right=new Integer[n-mid];
+        for(int i=0;i<mid;i++)
+            left[i]=X[i];
+        for(int i=mid;i<n;i++)
+            right[i]=X[i];
+        MergeSort(left);
+        MergeSort(right);
+        Merge(X,left,right);
+        return X;        
+    }
+    private void Merge(Integer[] X,Integer[] left,Integer[] right){
+        int nL=left.length;
+        int nR=right.length;
+        int i=0,j=0,k=0;
+        while(i<nL && j<nR){
+            if(left[i]<=right[j]){
+                X[k]=left[i];
+                i++;
+            }else{
+                X[k]=right[j];
+                j++;
+            }
+            k++;               
+        }
+        while(i<nL){
+            X[k]=left[i];
+            i++;
+            k++;
+        }
+        while(i<nR){
+            X[k]=right[j];
+            j++;
+            k++;
+        }
+    }
 }

@@ -190,13 +190,13 @@ public class Sort {
     
     public Integer[] CallQuickSort(){
         Integer[] X=getY().clone();
-        return QuickSort(X,0, X.length);
+        return QuickSort(X,0, X.length - 1);
     }
     
     private Integer[] QuickSort(Integer[] X, int start,int end){
         if(start<end){
             int pIndex=QuickSortPartition(X,start,end);
-            QuickSort(X, start, pIndex);
+            QuickSort(X, start, pIndex - 1 );
             QuickSort(X, pIndex + 1, end);
         }
         return X;

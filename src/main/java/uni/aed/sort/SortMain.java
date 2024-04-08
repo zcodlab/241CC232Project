@@ -6,7 +6,8 @@ public class SortMain {
     public static void main(String[] args){
         carga();
         visualizar();
-        heapSort();
+        quickSort();
+//        heapSort();
 //        insercionSort();
 //        visualizar();
 //        selectionWuSort();
@@ -38,10 +39,17 @@ public class SortMain {
         System.out.println("");
     }            
     
-    public static void heapSort(){
+    public static void heapSort(){        
         for(Integer y: sort.heapSort())
             System.out.print(y.toString()+ ",");   
         System.out.println("");
     }            
+    
+    public static void quickSort(){        
+        Integer[] X=sort.CallQuickSort();
+        for(Integer y: X)
+            System.out.print(y.toString()+ ",");   
+        System.out.println("");
+    }  
     
 }

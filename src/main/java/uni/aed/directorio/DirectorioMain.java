@@ -6,6 +6,7 @@ package uni.aed.directorio;
 
 import javax.swing.JOptionPane;
 import uni.aed.model.Persona;
+import uni.aed.sort.SortObject;
 /**
  *
  * @author hp
@@ -13,8 +14,50 @@ import uni.aed.model.Persona;
 public class DirectorioMain {
     public static void main(String[] args) {
         DirectorioMain tester = new DirectorioMain();
-        tester.start();
+        tester.heapSortPersona();
+        tester.heapSortEnteros();
     }
+    //1PC:demostracion 1a)
+    private void heapSortPersona(){
+        Directorio directorio=new DirectorioV1(4);
+        Persona p1=new Persona("Sonya Smith",30,'F');
+        Persona p2=new Persona("Barack Obama",60,'M');
+        Persona p3=new Persona("Dina Boluarte",50,'F');
+        Persona p4=new Persona("Mick Jagger",75,'M');
+        
+        directorio.add(p1);
+        directorio.add(p2);
+        directorio.add(p3);
+        directorio.add(p4);
+        
+        System.out.println("Data Persona Origen en Directorio ");
+        System.out.println(directorio.toString());
+        
+        System.out.println("Heapsort:Ordenando por Nombre ");
+        Object[] sortedlist = directorio.sort( Persona.NAME,"HEAPSORT");        
+        for(Object p: sortedlist)
+            System.out.println( ((Persona)p).toString( ) );
+        
+        System.out.println("Heapsort:Ordenando por Edad ");
+        sortedlist = directorio.sort( Persona.AGE,"HEAPSORT");        
+        for(Object p: sortedlist)
+            System.out.println( ((Persona)p).toString( ) );
+    }
+    //1PC:demostracion 1b)
+    private void heapSortEnteros(){
+        Integer X[]={5,14,24,39,43,65,84,45};        
+        System.out.println("Heapsort:Lista origen de Enteros ");        
+        for(Object p: X)
+            System.out.println( ((Integer)p).toString( ) );
+        
+        SortObject sortObject=new SortObject();                 
+        Object[]result=sortObject.HeapSort((Object[])X);     
+        
+        System.out.println("Heapsort:Ordenando Enteros ");        
+        for(Object p: result)
+            System.out.println( ((Integer)p).toString( ) );
+    }
+
 
     private void start( ) {
         String[] name = {"ape", "cat", "bee", "bat", "eel",

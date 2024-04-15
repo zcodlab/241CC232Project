@@ -11,4 +11,6 @@ public interface Directorio {
     public boolean delete( String searchName );          
     public Persona search( String searchName );       
     public Persona[ ] sort ( int attribute);        
+    //definicion del metodo sort que atiende el enunciado 1 de la 1PC
+    public Object[ ] sort ( int attribute, String algoritmo );   
 }

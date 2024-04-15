@@ -1,6 +1,7 @@
 package uni.aed.directorio;
 
 import uni.aed.model.Persona;
+import uni.aed.sort.SortObject;
 
 public class DirectorioV1 implements Directorio{
     private static final int  DEFAULT_SIZE = 25;
@@ -103,6 +104,25 @@ public class DirectorioV1 implements Directorio{
             bottom--;
         }
         return sortedList;
+    }
+    //implementacion del metodo sort que atiende el enunciado 1 de la 1PC
+    public Object[] sort ( int attribute,String algoritmo ) {
+        if (!(attribute == Persona.NAME || attribute == Persona.AGE) ) {
+            throw new IllegalArgumentException( );
+        }  
+        Object[] result=null;
+        Persona[] sortedList = new Persona[ count ];        
+        //copiamos las referencias a la lista ordenada
+        entry[0].setCompareAttribute(attribute);
+        for (int i = 0; i < count; i++)
+            sortedList[i] = entry[i];                
+        switch(algoritmo.toUpperCase()){            
+            case "HEAPSORT"->{
+                SortObject sortObject=new SortObject();                 
+                result=sortObject.HeapSort((Object[])sortedList);                
+            }
+        }//end switch
+        return result;
     }
     
     private void enlarge( )

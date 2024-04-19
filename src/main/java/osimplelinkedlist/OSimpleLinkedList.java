@@ -17,7 +17,7 @@ public class OSimpleLinkedList {
             current=current.next;
         }
         current.next=newNodo;
-    }
+    }    
     public void clear(){
         head=null;
     }

@@ -1,5 +1,5 @@
 package uni.aed.model;
-public class Bicicleta {
+public class Bicicleta implements Comparable{
     private String nomPropietario;
 
     public Bicicleta(String nomPropietario) {
@@ -22,6 +22,11 @@ public class Bicicleta {
     public int compareTo(Bicicleta o){
         String p2name=o.getNomPropietario();
         return this.nomPropietario.compareTo(p2name);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return compareTo((Bicicleta) o);
     }
     
 }

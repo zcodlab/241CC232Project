@@ -1,5 +1,5 @@
-package uni.aed.linkedlist;
-public class ListaEnlazadaSimple {
+package uni.aed.simplelinkedlist;
+public class SimpleLinkedList {
     Nodo head;
     int lenght=0;
     

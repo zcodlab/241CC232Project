@@ -1,4 +1,4 @@
-package osimplelinkedlist;
+package uni.aed.osimplelinkedlist;
 
 public class ONodo {
     Object data;

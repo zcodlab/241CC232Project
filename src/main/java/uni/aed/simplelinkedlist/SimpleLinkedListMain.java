@@ -2,19 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package uni.aed.linkedlist;
+package uni.aed.simplelinkedlist;
 
 /**
  *
  * @author hp
  */
-public class ListaEnlazadaSimpleMain {
+public class SimpleLinkedListMain {
     public static void main(String[] args){
-        ListaEnlazadaSimpleMain listaMain=new ListaEnlazadaSimpleMain();
+        SimpleLinkedListMain listaMain=new SimpleLinkedListMain();
         listaMain.ListaEnlazadaSimple();        
     }
     private void ListaEnlazadaSimple(){
-        ListaEnlazadaSimple lista=new ListaEnlazadaSimple();
+        SimpleLinkedList lista=new SimpleLinkedList();
         lista.addLast(10);
         lista.addLast(20);
         lista.addLast(30);

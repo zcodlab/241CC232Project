@@ -1,4 +1,4 @@
-package osimplelinkedlist;
+package uni.aed.osimplelinkedlist;
 
 import java.util.Scanner;
 import uni.aed.model.Bicicleta;

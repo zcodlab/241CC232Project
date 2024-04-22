@@ -1,4 +1,4 @@
-package osimplelinkedlist;
+package uni.aed.osimplelinkedlist;
 public class OSimpleLinkedList {
     ONodo head;
     public void addFirst(Object data){

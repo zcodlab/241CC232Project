@@ -6,6 +6,8 @@ public class GenericClassMain {
         gc.casillero1();
         System.out.println("Clase Generica Casillero2, con dos parametros de tipo");
         gc.casillero2();
+        System.out.println("Clase Generica Casillero4, con tipo acotado a numerico");
+        gc.casillero4();
     }    
     private void casillero1(){
         Casillero1<String> casilleroUno;
@@ -29,5 +31,14 @@ public class GenericClassMain {
                 +casillero.getContenido1()+"-"+casillero.getContenido2().toString());
         System.out.println("El saludo es:"
                 +saludo.getContenido1()+"-"+saludo.getContenido2());        
+    }
+    private void casillero4(){
+        Casillero4<Number> numerico1= new Casillero4<>(100);
+        Casillero4<Double> numerico2= new Casillero4<>(10.0);
+        Casillero4<Integer> numerico3= new Casillero4<>(10);        
+        System.out.println("El Casillero tiene los contenidos numericos:"
+                +numerico1.getContenido().toString()+"-"
+                +numerico2.getContenido().toString()+"-"
+                +numerico3.getContenido().toString());
     }
 }

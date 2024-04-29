@@ -19,15 +19,30 @@ public class SimpleLinkedListMain {
         lista.addLast(20);
         lista.addLast(30);
         lista.addFirst(40);
-        lista.addToPosition(2,60);
+        
         System.out.println("Visualizando el contenido de la lista");
         System.out.println(lista.toString());
+        
+        System.out.println("Añadiendo un elemento en la posicion: 20");        
+        int result=lista.addToPosition(20,25);
+        if(result==-1)
+            System.out.println("La posicion indicada es incorrecta");        
+        
+        System.out.println("Añadiendo un elemento en la posicion: 4");        
+        result=lista.addToPosition(4,25);
+        if(result==-1)
+            System.out.println("La posicion indicada es incorrecta");        
+        
+        System.out.println("Añadiendo un elemento en la posicion: 3");        
+        result=lista.addToPosition(3,25);
+        if(result==-1)
+            System.out.println("La posicion indicada es incorrecta");        
         
         System.out.println("Eliminando un elemento: 20");
         lista.remove(20);
         
         System.out.println("Buscando el elemento: 60");
-        int result=lista.search(60);
+        result=lista.search(60);
         if(result==-1)
             System.out.println("El elemento no se ubico en la lista");
         else

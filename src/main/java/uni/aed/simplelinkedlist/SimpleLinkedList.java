@@ -9,30 +9,30 @@ public class SimpleLinkedList {
         head=newNodo;
         lenght++;
     }
-    public void addToPosition(int position,int currentDataValue){
+    public int addToPosition(int position,int currentDataValue){
         Nodo anotherNodo=new Nodo(currentDataValue);        
         Nodo current;
-        int index;
-        if((position<1 || position>lenght))
-           System.out.println("Posicion debe ser un valor entre 1-"+lenght);
+        int index=0;
+        if((position<0 || position>=lenght))
+           return -1;
+        
+        if(position==0)
+            addFirst(anotherNodo.data);                
         else
         {
-            if(position==1)
-                addFirst(anotherNodo.data);                
-            else
-            {
-                current=head;            
-                index=1;
-                while(index<(position-1)){
-                    current=current.next;
-                    index++;
-                }
-                anotherNodo.next=current.next;
-                current.next=anotherNodo;
-                lenght++;
+            current=head;            
+            index=0;
+            while(index < position){
+                current=current.next;
+                index++;
             }
-        }      
+            anotherNodo.next=current.next;
+            current.next=anotherNodo;
+            lenght++;
+        }
+        return 1;
     }
+    
     public int search(int key){
        Nodo temp=head;
        boolean isFound=false;

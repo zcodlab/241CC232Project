@@ -19,19 +19,18 @@ public class OSimpleLinkedList {
         current.next=newNodo;
     }  
     public void remove(Object data){
-        if(head==null)//si lista no tiene datos no hay nada que eliminar            
+        if(head==null)         
             return;
-        //encontrar el elemento a remover
-        //verificamos si el primer elemento de la lista es igual al valor ingresado
+        
         if(((Comparable)head.data).compareTo(data)==0){
             head=head.next;
             return;
         }
-        //Recorrer la lista en la busqueda del nodo a eliminar
+        
         ONodo current=head;
         while(current.next!=null && (((Comparable)current.next.data).compareTo(data)!=0))
             current=current.next;
-        //si lo encontro entonces procede a eliminar
+        
         if(current.next!=null)
             current.next=current.next.next;
             

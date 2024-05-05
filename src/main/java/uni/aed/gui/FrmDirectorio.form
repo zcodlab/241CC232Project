@@ -78,10 +78,8 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jTFNombre" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="jCBSexo" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTFEdad" min="-2" pref="71" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jTFEdad" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                      <Component id="jCBSexo" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="40" max="32767" attributes="0"/>
               </Group>

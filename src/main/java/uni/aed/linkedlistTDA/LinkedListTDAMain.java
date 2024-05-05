@@ -1,15 +1,16 @@
 package uni.aed.linkedlistTDA;
 
+import uni.aed.listTDA.ListTDA;
 import uni.aed.model.Persona;
 
-public class TestLinkedListTDA {
+public class LinkedListTDAMain {
     public static void main(String[] args) {
-        TestLinkedListTDA listaTDA=new TestLinkedListTDA();   
+        LinkedListTDAMain listaTDA=new LinkedListTDAMain();   
         listaTDA.linkedListString();
         listaTDA.linkedListPersona();
     }
     private void linkedListString(){
-        LinkedListTDA<String> linkedListTDA = new LinkedListTDA();
+        ListTDA<String> linkedListTDA = new LinkedListTDA<>();
         System.out.println("Antes de añadir elementos:");	
         System.out.println("Size = "+linkedListTDA.size());
         linkedListTDA.add("Jose");
@@ -34,7 +35,7 @@ public class TestLinkedListTDA {
         System.out.println(linkedListTDA.toString()); 
     }
     private void linkedListPersona(){
-        LinkedListTDA<Persona> linkedListTDA = new LinkedListTDA();
+        ListTDA<Persona> linkedListTDA = new LinkedListTDA<>();
         System.out.println("Antes de añadir elementos:");	
         System.out.println("Size = "+linkedListTDA.size());
         
@@ -55,12 +56,20 @@ public class TestLinkedListTDA {
         System.out.println("Size = "+linkedListTDA.size());        
         System.out.println(linkedListTDA.toString());
         
-        System.out.println("Buscando 1 elemento: Elon Musk, posicion 1");	
+        System.out.println("Buscando 1 elemento: Elon Musk");	
         Persona p5=new Persona("Elon Musk",60,'M');
         if (linkedListTDA.contain(p5)==true){            
             System.out.println("El elemento buscado: "+ p5.getName() +" se encuentra en la posicion: "+ linkedListTDA.indexOf(p5)+" se procedera a su eliminacion.");            
             System.out.println("Eliminando el elemento "+ p5.getName() +" luego de ubicarlo en la lista");
             linkedListTDA.delete(linkedListTDA.indexOf(p5));
+        }else
+            System.out.println("El elemento buscado no se encuentra en el Registro");
+        
+        System.out.println("Buscando 1 elemento: Barack Obama");
+        if (linkedListTDA.contain(p2)==true){            
+            System.out.println("El elemento buscado: "+ p2.getName() +" se encuentra en la posicion: "+ linkedListTDA.indexOf(p2)+" se procedera a su eliminacion.");            
+            System.out.println("Eliminando el elemento "+ p2.getName() +" luego de ubicarlo en la lista");
+            linkedListTDA.delete(linkedListTDA.indexOf(p2));
         }else
             System.out.println("El elemento buscado no se encuentra en el Registro");
         //imprimiendo elementos de la LinkedList        

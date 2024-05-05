@@ -95,7 +95,7 @@ public class LinkedListTDA<E> implements ListTDA<E>{
     public int indexOf(E data) {
         int index=0;
         Nodo apt=head;
-        while(index<count && !apt.getData().equals(data)){
+        while(index<count && ((Comparable)apt.getData()).compareTo( data)!=0){
             index++;
             apt=apt.getNext();
         }
@@ -137,7 +137,7 @@ public class LinkedListTDA<E> implements ListTDA<E>{
         boolean resultado=false;
         Nodo apt=head;
         Nodo huella=null;
-        while(apt!=null && !apt.getData().equals(data)){
+        while(apt!=null && ((Comparable)apt.getData()).compareTo( data)!=0){
             huella=apt;
             apt=apt.getNext();
         }

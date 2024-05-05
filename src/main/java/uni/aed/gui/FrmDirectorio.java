@@ -101,9 +101,8 @@ public class FrmDirectorio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPDataPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPDataPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jCBSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTFEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jTFEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCBSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPDataPersonaLayout.setVerticalGroup(
@@ -275,14 +274,14 @@ public class FrmDirectorio extends javax.swing.JFrame {
         String genero=(String)jCBSexo.getSelectedItem();
         Persona p=new Persona(nombre,edad,genero.charAt(0));
         linkedListTDA.add(p);
-        mLDirectorio.addElement(p.toString());
+        mLDirectorio.addElement(p.toString());                
         clearEntry();
         jTFNombre.requestFocus();
     }
     private void clearEntry(){
         jTFNombre.setText(CADENA_VACIA);
         jTFEdad.setText(CADENA_VACIA);
-        jCBSexo.setSelectedIndex(0);
+        jCBSexo.setSelectedIndex(1);
     }
     /**
      * @param args the command line arguments

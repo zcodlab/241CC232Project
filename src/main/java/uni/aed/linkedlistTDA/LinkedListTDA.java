@@ -95,7 +95,7 @@ public class LinkedListTDA<E> implements ListTDA<E>{
     public int indexOf(E data) {
         int index=0;
         Nodo apt=head;
-        while(index<count && ((Comparable)apt.getData()).compareTo( data)!=0){
+        while(index<count && !apt.getData().equals(data)){
             index++;
             apt=apt.getNext();
         }
@@ -137,7 +137,7 @@ public class LinkedListTDA<E> implements ListTDA<E>{
         boolean resultado=false;
         Nodo apt=head;
         Nodo huella=null;
-        while(apt!=null && ((Comparable)apt.getData()).compareTo( data)!=0){
+        while(apt!=null && !apt.getData().equals(data)){
             huella=apt;
             apt=apt.getNext();
         }
@@ -172,13 +172,6 @@ public class LinkedListTDA<E> implements ListTDA<E>{
     public int size() {
         return count;
     }
-
-//    @Override
-//    public void imprimir() {
-//        IteratorTDA it=new Iterador(head);
-//        while(it.hasNext())
-//            System.out.println(it.next().toString());
-//    }
     
     @Override
     public String toString() {
@@ -193,4 +186,14 @@ public class LinkedListTDA<E> implements ListTDA<E>{
         return result;
     }
     
+    public Object[] toArray(){
+        IteratorTDA it=new Iterador(head);
+        Object[] newArray= new Object[size()];
+        
+        int i=0;
+        while(it.hasNext())
+            newArray[i++]= (Object)it.next();
+        
+        return newArray;
+    }    
 }

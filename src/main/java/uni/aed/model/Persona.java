@@ -50,16 +50,17 @@ public class Persona implements Comparable{
         return name;
     }    
     
+    @Override
+    public boolean equals(Object o) { 
+        return name.equals(((Persona) o).name);   //compara nombres
+    }  
+    
     public String toString( )  {
         return this.name    + "||" +
                this.age     + "||" +
                this.gender;
     }
-//    public String toString1( )  {
-//        return this.name    + "\t\t" +
-//               this.age     + "\t\t" +
-//               this.gender;
-//    }
+
     public void setCompareAttribute( int attribute ) {
         compareAttribute = attribute;
     }    
@@ -85,9 +86,6 @@ public class Persona implements Comparable{
 
         return comparisonResult;
     }        
-//    public int compareTo( Persona persona ) {
-//        return compareTo(persona, compareAttribute);
-//    }
 
     @Override
     public int compareTo(Object o) {

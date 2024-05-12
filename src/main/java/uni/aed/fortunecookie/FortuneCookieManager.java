@@ -17,4 +17,27 @@ public class FortuneCookieManager {
         return fortunas.get(index);
         
     }
+    //2pc
+    public void AddFortuneCookie(String fortune){
+        fortunas.add(fortune);
+    }
+    public void DeleteFortuneCookie(String fortune){
+        fortunas.delete(fortune);
+    }
+    public void DeleteFortuneCookie(int index){
+        fortunas.delete(index);
+    }
+    public String getLastFortuneCookie() {
+        return fortunas.get(fortunas.size());
+    }
+    public String getFortuneCookie(int index){
+        return fortunas.get(index);
+    }
+    public int getSizeFortuneCookie() {
+        return fortunas.size();
+    }
+    @Override
+    public String toString() {
+        return "FortuneCookieManager{" + "fortunas=" + fortunas + '}';
+    }
 }

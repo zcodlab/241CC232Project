@@ -59,8 +59,8 @@ public class LinkedListTDA<E> implements ListTDA<E>{
             throw new IndexOutOfBoundsException("Indice "+ index+" es invalido. Lista vacia");
         else if(index<0)
             throw new IndexOutOfBoundsException("Indice negativo de "+ index+" es invalido.");
-        else if(index>size()-1)
-            throw new IndexOutOfBoundsException("Indice "+ index+ " es mayor que limite superior valido "+ (size()-1));        
+        else if(index>size())
+            throw new IndexOutOfBoundsException("Indice "+ index+ " es mayor que limite superior valido "+ size());        
     }
             
 
@@ -85,7 +85,7 @@ public class LinkedListTDA<E> implements ListTDA<E>{
         revisaPosAcceso(index);
         E data=null;
         Nodo apt=head;
-        for(int i=0;i<index;i++)
+        for(int i=0;i<(index - 1);i++)
             apt=apt.getNext();
         data=(E)apt.getData();
         return data;

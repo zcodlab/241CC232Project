@@ -48,7 +48,7 @@ public class LinkedListTDA<E> implements ListTDA<E>{
         count++;
     }
     
-    private void revisaPosInsercion(int index){
+    protected void revisaPosInsercion(int index){
         if(index<0)
             throw new IndexOutOfBoundsException("Indice ingresado es invalido");
         else if(index>size())

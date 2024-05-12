@@ -1,13 +1,75 @@
 package uni.aed.linkedlistTDA;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
 import uni.aed.listTDA.ListTDA;
 import uni.aed.model.Persona;
 
 public class LinkedListTDAMain {
     public static void main(String[] args) {
         LinkedListTDAMain listaTDA=new LinkedListTDAMain();   
-        listaTDA.linkedListString();
-        listaTDA.linkedListPersona();
+        listaTDA.menu();
+    }
+    private void menu(){
+        Scanner scr=new Scanner(System.in).useDelimiter("\n");
+        int opcion=1;		
+	String Rpta="S";				
+	String SEPARADOR="\n";	                            
+        try{
+            
+            do			
+            {	
+                System.out.print("Listas Enlazadas"+SEPARADOR+
+                "1.- Añadir Numeros "+SEPARADOR+
+                "2.- Añadir Personas "+SEPARADOR+                
+                "3.- Salir "+SEPARADOR+"Elija una opcion:");                
+                opcion =scr.nextInt();            
+                switch (opcion)
+                {
+                    case 1 -> {noDupLinkedListTDAEnteros();}
+                    case 2 -> {noDupLinkedListTDAPersonas();}                    
+                    default -> {break;}
+                }	            
+                System.out.print("Para continuar con las operaciones pulsa S; Para finalizar pulse N: ");
+                Rpta=scr.next().toUpperCase();			
+            }while(Rpta.equals("S")==true);	
+        }catch(InputMismatchException ex) {
+            System.out.println("Debe ingresar obligatoriamente un número entero como opcion elegida.");
+        }catch(Exception ex) {
+            System.out.println(ex.toString());
+        }
+    }
+    private void noDupLinkedListTDAEnteros(){
+        Scanner scr=new Scanner(System.in).useDelimiter("\n");
+        String Rpta="S";
+        NoDupLinkedListTDA<Integer> lista=new NoDupLinkedListTDA();
+        do{
+            System.out.println("Digite un numero");
+            int n = scr.nextInt();
+            if (lista.addNoDup(n)==-1)                 
+                System.out.println("El numero ingresado ya existe en la lista, la lista no permite duplicados");
+            System.out.println("¿Desea continuar? Pulse n para detenerse. ");
+            Rpta=scr.next().toUpperCase();
+        }while(Rpta.equals("S")==true);
+        System.out.println(lista.toString());
+    }
+    private void noDupLinkedListTDAPersonas(){
+        Scanner scr=new Scanner(System.in).useDelimiter("\n");
+        NoDupLinkedListTDA<Persona> lista=new NoDupLinkedListTDA();
+        String Rpta="S";
+        do{
+            System.out.println("Ingrese Nombre de la Persona:");
+            String nombre = scr.next().toUpperCase();
+            System.out.println("Ingrese Edad de la Persona:");
+            int edad = scr.nextInt();
+            System.out.println("Ingrese Genero(F/M) de la Persona:");
+            char genero = scr.next().toUpperCase().charAt(0);
+            if (lista.addNoDup(new Persona(nombre,edad,genero))==-1)
+                System.out.println("La Persona ingresada ya existe en la lista, la lista no permite duplicados");
+            System.out.println("¿Desea continuar? Pulse n para detenerse. ");
+            Rpta=scr.next().toUpperCase();
+        }while(Rpta.equals("S")==true);
+        System.out.println(lista.toString());
     }
     private void linkedListString(){
         ListTDA<String> linkedListTDA = new LinkedListTDA<>();

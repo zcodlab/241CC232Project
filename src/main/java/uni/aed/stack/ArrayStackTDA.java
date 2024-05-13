@@ -66,7 +66,13 @@ public class ArrayStackTDA<E> implements StackTDA<E> {
 
     @Override
     public String toString() {
-        return "ArrayStackTDA{" + "elementos=" + elementos + '}';
+        String result="";
+        int  current=contador-1;
+        while(current>=0){
+            result=result+"\n"+ elementos[current].toString();
+            current--;
+        }
+        return result;
     }
     
 }

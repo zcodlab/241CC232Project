@@ -104,57 +104,5 @@ public class ReservacionMain {
         System.out.println("Listado de Reservas");
         System.out.println(reservacion.toString());
     }
-    private void opciones(){
-//        Reservacion reservacion=new Reservacion();
-//        Reserva reserva;
-//        Pasajero pasajero;
-//        Vuelo vuelo;
-//        Boleto boleto;
-        System.out.println("Ingrese el Pasajero");
-        pasajero=new Pasajero("Jose", "Perez");
-        System.out.println("Ingrese el numero de vuelo de su interes");
-        vuelo=new Vuelo("V10");
-        System.out.println("Se le ha generado el Boleto N°");
-        boleto=new Boleto("T10");
-        reserva=new Reserva("R001",pasajero,vuelo,boleto);        
-        reservacion.reservarVuelo(reserva);        
-        //2reservacion
-        System.out.println("Ingrese el Pasajero");
-        pasajero=new Pasajero("Juan", "Lopez");
-        System.out.println("Ingrese el numero de vuelo de su interes");
-        vuelo=new Vuelo("V10");
-        System.out.println("Se le ha generado el Boleto N°");
-        boleto=new Boleto("T11");
-        reserva=new Reserva("R002",pasajero,vuelo,boleto);        
-        reservacion.reservarVuelo(reserva);
-        //3reservacion
-        System.out.println("Ingrese el Pasajero");
-        pasajero=new Pasajero("Ronald", "Ramos");
-        System.out.println("Ingrese el numero de vuelo de su interes");
-        vuelo=new Vuelo("V10");
-        System.out.println("Se le ha generado el Boleto N°");
-        boleto=new Boleto("T12");
-        reserva=new Reserva("R003",pasajero,vuelo,boleto);        
-        reservacion.reservarVuelo(reserva);        
-        System.out.println(reservacion.toString());
-        
-        System.out.println("Cancelacion de Reserva");
-        System.out.println("Ingrese la Reserva a cancelar");
-        reserva=new Reserva("R003",null,null,null);        
-        reservacion.cancelarVuelo(reserva);
-        System.out.println("Listado de Reservas");
-        System.out.println(reservacion.toString());
-        
-        System.out.println("Buscando un Boleto");
-        System.out.println("Ingrese el Boleto a consultar");
-        boleto=new Boleto("T11");
-        pasajero=reservacion.consultarBoleto(boleto);
-        System.out.println("El Boleto le pertenece al Pasajero: "+pasajero.toString());
-        
-        System.out.println("Reporte del Vuelo");
-        vuelo=new Vuelo("V10");        
-        for(Object o:(reservacion.listarPasajeros(vuelo)).toArray())
-            System.out.println(((Pasajero)o).toString());
-    }
     
 }

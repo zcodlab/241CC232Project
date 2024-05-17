@@ -11,4 +11,5 @@ public interface ListTDA<E> {
     public boolean delete(E elemento);
     public E modify(int index,E elemento) throws IndexOutOfBoundsException;
     public int size();
+    public Object[] toArray();
 }

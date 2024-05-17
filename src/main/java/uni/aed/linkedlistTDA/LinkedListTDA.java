@@ -186,6 +186,7 @@ public class LinkedListTDA<E> implements ListTDA<E>{
         return result;
     }
     
+    @Override
     public Object[] toArray(){
         IteratorTDA it=new Iterador(head);
         Object[] newArray= new Object[size()];

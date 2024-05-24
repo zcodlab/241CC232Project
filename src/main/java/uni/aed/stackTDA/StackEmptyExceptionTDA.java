@@ -1,4 +1,4 @@
-package uni.aed.stack;
+package uni.aed.stackTDA;
 
 public class StackEmptyExceptionTDA extends RuntimeException{
 

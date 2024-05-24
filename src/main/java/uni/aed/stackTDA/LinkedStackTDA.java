@@ -1,4 +1,4 @@
-package uni.aed.stack;
+package uni.aed.stackTDA;
 import uni.aed.linkedlistTDA.Nodo;
 public class LinkedStackTDA<E> implements StackTDA<E> {
     private Nodo<E> topPila;

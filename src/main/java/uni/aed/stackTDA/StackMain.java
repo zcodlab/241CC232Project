@@ -1,4 +1,4 @@
-package uni.aed.stack;
+package uni.aed.stackTDA;
 
 import java.util.Scanner;
 

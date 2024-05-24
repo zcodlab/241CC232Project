@@ -1,7 +1,7 @@
 package uni.aed.tagsHTML;
 import java.io.IOException;
-import uni.aed.stack.ArrayStackTDA;
-import uni.aed.stack.StackTDA;
+import uni.aed.stackTDA.ArrayStackTDA;
+import uni.aed.stackTDA.StackTDA;
 
 public class HTMLRevisaEtiq {
     private StackTDA<HTMLEtiq> etiquetasEnPila;

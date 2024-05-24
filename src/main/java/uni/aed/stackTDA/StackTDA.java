@@ -1,4 +1,4 @@
-package uni.aed.stack;
+package uni.aed.stackTDA;
 public interface StackTDA<E> {
     public void push(E elemento);//add
     public E pop() throws StackEmptyExceptionTDA;//remove

@@ -1,4 +1,4 @@
-package uni.aed.stack;
+package uni.aed.stackTDA;
 
 public class ArrayStackTDA<E> implements StackTDA<E> {
     private static final int TAM_DEFINIDO=10;

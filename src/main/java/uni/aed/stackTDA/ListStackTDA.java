@@ -1,4 +1,4 @@
-package uni.aed.stack;
+package uni.aed.stackTDA;
 import uni.aed.linkedlistTDA.LinkedListTDA;
 import uni.aed.listTDA.ListTDA;
 public class ListStackTDA<E> implements StackTDA<E> {

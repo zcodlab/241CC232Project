@@ -18,6 +18,8 @@ public class BSTMain {
         tree.insert(7);
         tree.insert(13);
         tree.insert(8);
+        System.out.println("Realizando una llamanda inorder(LVR)");
+        tree.inorder();
     }
     
 }

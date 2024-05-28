@@ -1,4 +1,4 @@
-package uni.aed.tree;
+package uni.aed.trees;
 /** 
  * BST: Binary Search Tree
  */
@@ -25,7 +25,7 @@ public class BST {
     }
     public void visit(BSTNode p){
         if(p!=null)
-            System.out.println(p.getKey());
+            System.out.print(p.getKey()+" ");
         else
             System.out.println("Nodo No existe");
     }
@@ -39,6 +39,27 @@ public class BST {
             visit(p);
             inorder(p.right);
         }        
+    }
+    //VLR preorder
+    public void preorder(){
+        preorder(root);
+    }
+    public void preorder(BSTNode p){//VLR
+        if(p!=null){
+            visit(p);
+            preorder(p.left);
+            preorder(p.right);}
+    }
+    //LRV postorder
+    public void postorder(){//LRV
+        postorder(root);
+    }
+    public void postorder(BSTNode p){//LRV
+        if(p!=null){            
+            postorder(p.left);
+            postorder(p.right);
+            visit(p);   
+        }         
     }
     
     

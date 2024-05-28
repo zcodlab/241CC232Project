@@ -1,4 +1,4 @@
-package uni.aed.tree;
+package uni.aed.trees;
 
 public class BSTNode {
     private int key;

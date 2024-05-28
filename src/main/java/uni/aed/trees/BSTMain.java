@@ -1,4 +1,4 @@
-package uni.aed.tree;
+package uni.aed.trees;
 
 public class BSTMain {
     public static void main(String[] args){
@@ -20,6 +20,10 @@ public class BSTMain {
         tree.insert(8);
         System.out.println("Realizando una llamanda inorder(LVR)");
         tree.inorder();
+        System.out.println("\nRealizando una llamanda preorder(VLR)");
+        tree.preorder();
+        System.out.println("\nRealizando una llamanda postorder(LRV)");
+        tree.postorder();
     }
     
 }

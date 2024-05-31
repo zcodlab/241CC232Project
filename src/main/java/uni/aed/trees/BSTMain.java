@@ -24,6 +24,10 @@ public class BSTMain {
         tree.preorder();
         System.out.println("\nRealizando una llamanda postorder(LRV)");
         tree.postorder();
+        System.out.println("\nRealizando una busqueda del elemento 13");
+        tree.visit(tree.search(13));
+        System.out.println("\nRealizando una llamada al metodo primero en amplitud");
+        tree.breadthFirst();
     }
     
 }

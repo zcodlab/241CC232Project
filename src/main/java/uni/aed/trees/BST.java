@@ -1,4 +1,8 @@
 package uni.aed.trees;
+
+import uni.aed.queueTDA.LinkedQueueTDA;
+import uni.aed.queueTDA.QueueTDA;
+
 /** 
  * BST: Binary Search Tree
  */
@@ -62,5 +66,113 @@ public class BST {
         }         
     }
     
+    public BSTNode search(int e){
+        return search(root,e);
+    }
+    public BSTNode search(BSTNode p, int e){
+        while(p!=null){
+            if(e==p.getKey())
+                return p;
+            else if(e<p.getKey())
+                p=p.left;
+            else
+                p=p.right;
+        }
+        return null;
+    }
+    //recorrido primero en amplitud
+    public void breadthFirst(){
+        BSTNode p=root;
+        QueueTDA queue= new LinkedQueueTDA();
+        if(p!=null){
+            queue.add(p);
+            while(!queue.isEmpty()){
+                p=(BSTNode)queue.remove();
+                visit(p);
+                if(p.left!=null)
+                    queue.add(p.left);
+                if(p.right!=null)
+                    queue.add(p.right);                    
+            }
+        }
+    }
+    //Eliminacion por copiado
+    public void deleteByCopying(int e){
+        BSTNode tmp,node,p=root,prev=null, previous;
+        //buscamos el nodo a eliminar
+        while(p!=null && p.getKey()!=e){
+            prev=p;
+            if(p.getKey()<e)
+                p=p.right;
+            else
+                p=p.left;            
+        }
+        node=p;
+        if(p!=null && p.getKey()==e){//encontro el elemento a eliminar
+            if(node.right==null)//no tiene hijo derecho
+                node=node.left;
+            else if (node.left==null)//no tiene hijo izq
+                node=node.right;
+            else{//el nodo tiene dos hijos
+                tmp=node.left;
+                previous=node;
+                while(tmp.right!=null){//rama derecha de la rama izq del nodo a elimar
+                    previous=tmp;
+                    tmp=tmp.right;
+                }
+                node.setKey(tmp.getKey());//copiamos el nodo derecho mas extremo de la rama izq del nodo con dos hijos a eliminar
+                if(previous==node)
+                    previous.left=tmp.left;
+                else
+                    previous.right=tmp.left;                
+            }
+            if(p==root)
+                root=node;
+            else if(prev.left==p)
+                prev.left=node;
+            else
+                prev.right=node;            
+        }
+        else if(root!=null)//no encontro el elemento a elimnar en el arbol
+            System.out.println("El valor bno se encuentra en el arbol");
+        else
+            System.out.println("El arbol esta vacio");
+    }
+    public void deleteByMerging(int e ){
+        BSTNode tmp,node,p=root,prev=null;
+        //buscamos el nodo a eliminar
+        while(p!=null && p.getKey()!=e){
+            prev=p;
+            if(p.getKey()<e)
+                p=p.right;
+            else
+                p=p.left;            
+        }
+        node=p;
+        if(p!=null && p.getKey()==e){
+            if(node.right==null)//si no tiene hijo derecho
+                node=node.left;
+            else if (node.left==null)
+                node=node.right;
+            else{
+                tmp=node.left;
+                while(tmp.right!=null){
+                    tmp=tmp.right;
+                }
+                tmp.right=node.right;//nodo derecho mas extremo de la rama izq del nodo a eliminar se superponga al nodo derecho del nodo a eliminar
+                node=node.left;
+            }
+            if(p==root)
+                root=node;
+            else if(prev.left==p)
+                prev.left=node;
+            else
+                prev.right=node;
+        }
+        else if(root!=null)//no encontro el elemento a elimnar en el arbol
+            System.out.println("El valor bno se encuentra en el arbol");
+        else
+            System.out.println("El arbol esta vacio");
+    }
     
 }

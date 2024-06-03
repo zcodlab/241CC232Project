@@ -18,9 +18,7 @@ public class TBT {
                 if(!p.succesor)
                     p=p.right;
                 else
-                    break;
-            }
-        }
+                    break;}}
         if(value<prev.key){
             prev.left=newNode;
             newNode.succesor=true;

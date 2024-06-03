@@ -26,8 +26,14 @@ public class BSTMain {
         tree.postorder();
         System.out.println("\nRealizando una busqueda del elemento 13");
         tree.visit(tree.search(13));
-        System.out.println("\nRealizando una llamada al metodo primero en amplitud");
+        System.out.println("\nRealizando una llamada al metodo primero en amplitud");        
         tree.breadthFirst();
+        System.out.println("\nRealizando eliminacion por copiado del nodo raiz: 10");
+        tree.deleteByCopying(10);
+        tree.inorder();
+        System.out.println("\nRealizando eliminacion por fusion del nodo raiz: 10");
+        tree.deleteByMerging(20);
+        tree.inorder();
     }
     
 }

@@ -3,12 +3,11 @@ package uni.aed.trees.B;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Node<T extends Comparable<T>>{
-
-    private T[] keys = null;
-    protected int keysSize = 0;
+public class Node<T extends Comparable<T>>{    
+    protected int keysSize = 0;//keytally
     protected Node<T> parent = null;
-    protected Node<T>[] children = null;
+    private T[] keys = null;
+    protected Node<T>[] children = null;//colleccion de referencias
     protected int childrenSize = 0;
 
     public Node(Node<T> parent, int maxKeySize, int maxChildrenSize) {

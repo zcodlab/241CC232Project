@@ -1,7 +1,6 @@
 package uni.aed.trees.B;
 
 import java.util.Collection;
-
 public class BTree<T extends Comparable<T>> implements ITree<T> {
     private int minKeySize;//keytally min
     private int minChildrenSize;//keytally children min
@@ -14,8 +13,8 @@ public class BTree<T extends Comparable<T>> implements ITree<T> {
     }
     
     public BTree(int m) {
-        this.minKeySize = (m/2) - 1;
-        this.minChildrenSize = (m/2) ;
+        this.minKeySize = (int) Math.ceil(m/2.0) - 1;
+        this.minChildrenSize = (int) Math.ceil(m/2.0) ;
         this.maxKeySize = m - 1;
         this.maxChildrenSize = m;
     }

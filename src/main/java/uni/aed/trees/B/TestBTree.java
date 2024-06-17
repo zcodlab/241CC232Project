@@ -2,8 +2,7 @@ package uni.aed.trees.B;
 
 public class TestBTree {
     public static void main(String[] args)
-    {
-        
+    {        
         BTree<Integer> bst = new BTree<>(5);
         bst.add(2);
         bst.add(8);

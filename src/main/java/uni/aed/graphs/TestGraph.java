@@ -2,20 +2,25 @@ package uni.aed.graphs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import uni.aed.graphs.shortestpath.CostPathPair;
+import uni.aed.graphs.shortestpath.Dijkstra;
 
 public class TestGraph {
     public static void main(String[] args) {             
         System.out.println("-----------------undirectedGraph--------------------");
         UndirectedGraph undirectedGraph = new UndirectedGraph();        
-        System.out.println(undirectedGraph.toString());        
+        System.out.println(undirectedGraph.toString());
+        //probando el algoritmo de Dijkstra
+        testDijkstraUndirected();
         
-        System.out.println("-----------------directedGraph--------------------");
-        DirectedGraph directedGraph = new DirectedGraph();
-        System.out.println(directedGraph.toString());
-        
-        System.out.println("-----------------directedWithNegativeWeights--------------------");
-        DirectedWithNegativeWeights directedWithNegativeWeights = new DirectedWithNegativeWeights();        
-        System.out.println(directedWithNegativeWeights.graph.toString());
+//        System.out.println("-----------------directedGraph--------------------");
+//        DirectedGraph directedGraph = new DirectedGraph();
+//        System.out.println(directedGraph.toString());
+//        
+//        System.out.println("-----------------directedWithNegativeWeights--------------------");
+//        DirectedWithNegativeWeights directedWithNegativeWeights = new DirectedWithNegativeWeights();        
+//        System.out.println(directedWithNegativeWeights.graph.toString());
     }
     
     private static class UndirectedGraph{//1.grafo no dirigido
@@ -158,6 +163,31 @@ public class TestGraph {
         public String toString() {
             return graph.toString();
         } 
-    }   
-
+    }
+    
+    public static void testDijkstraUndirected() {
+        final UndirectedGraph undirected = new UndirectedGraph();
+        final Vertex<Integer> start = undirected.v1;
+        final Vertex<Integer> end = undirected.v5;
+        
+        {
+        final Map<Vertex<Integer>, CostPathPair<Integer>> map 
+                = Dijkstra.getShortestPaths(undirected.graph, start);
+        
+        // Compare results
+        CostPathPair<Integer> path,pair;
+        System.out.println("****Dijkstra.getShortestPaths del vertice inicial: "+start.getValue()+" ****");
+        for (Vertex<Integer> v : map.keySet()) {
+            System.out.println("v=" + v.getValue());
+            path = map.get(v);
+            System.out.println("Dijkstra's shortest path=" + path);
+        }
+        
+        System.out.println("****Dijkstra.getShortestPath del vertice inicial: "+start.getValue()+" vertice final: "+end.getValue()+" ****");
+        pair = Dijkstra.getShortestPath(undirected.graph, start, end);
+        System.out.println("Ruta desde " + start.getValue() + " to " + 
+                end.getValue()+ " (pair != null)= " + (pair != null));        
+        System.out.println(pair);
+    }  
+  }
 }

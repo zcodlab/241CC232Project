@@ -1,19 +1,28 @@
 package uni.aed.graphs;
 
+import uni.aed.graphs.shortestpath.CostPathPair;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import uni.aed.graphs.shortestpath.CostPathPair;
 import uni.aed.graphs.shortestpath.Dijkstra;
+import uni.aed.graphs.TopologicalSort.TopologicalSort;
+import uni.aed.graphs.recubrimiento.Kruskal;
+import uni.aed.graphs.recubrimiento.Prim;
 
 public class TestGraph {
-    public static void main(String[] args) {             
-        System.out.println("-----------------undirectedGraph--------------------");
-        UndirectedGraph undirectedGraph = new UndirectedGraph();        
-        System.out.println(undirectedGraph.toString());
-        //probando el algoritmo de Dijkstra
-        testDijkstraUndirected();
-        
+    public static void main(String[] args) { 
+        System.out.println("-----------------PrimUndirected--------------------");
+        testPrimUndirected();
+//        System.out.println("-----------------KruskalUndirected--------------------");
+//        testKruskalUndirected();
+//        System.out.println("-----------------topologicalSort--------------------");
+//        topologicalSortOnDirectedGraph();
+//        System.out.println("-----------------undirectedGraph--------------------");
+//        UndirectedGraph undirectedGraph = new UndirectedGraph();        
+//        System.out.println(undirectedGraph.toString());
+//        //probando el algoritmo de Dijkstra
+//        testDijkstraUndirected();
+//        
 //        System.out.println("-----------------directedGraph--------------------");
 //        DirectedGraph directedGraph = new DirectedGraph();
 //        System.out.println(directedGraph.toString());
@@ -188,6 +197,177 @@ public class TestGraph {
         System.out.println("Ruta desde " + start.getValue() + " to " + 
                 end.getValue()+ " (pair != null)= " + (pair != null));        
         System.out.println(pair);
-    }  
+    }          
   }
+  public static void topologicalSortOnDirectedGraph() {
+    // DIRECTED GRAPH
+    final List<Vertex<Integer>> verticies = new ArrayList<>();
+    final Vertex<Integer> cv1 = new Vertex<>(1);
+    verticies.add(cv1);
+    final Vertex<Integer> cv2 = new Vertex<>(2);
+    verticies.add(cv2);
+    final Vertex<Integer> cv3 = new Vertex<>(3);
+    verticies.add(cv3);
+    final Vertex<Integer> cv4 = new Vertex<>(4);
+    verticies.add(cv4);
+    final Vertex<Integer> cv5 = new Vertex<>(5);
+    verticies.add(cv5);
+    final Vertex<Integer> cv6 = new Vertex<>(6);
+    verticies.add(cv6);
+
+    final List<Edge<Integer>> edges = new ArrayList<>();
+    final Edge<Integer> ce1_2 = new Edge<>(1, cv1, cv2);
+    edges.add(ce1_2);
+    final Edge<Integer> ce2_4 = new Edge<>(2, cv2, cv4);
+    edges.add(ce2_4);
+    final Edge<Integer> ce4_3 = new Edge<>(3, cv4, cv3);
+    edges.add(ce4_3);
+    final Edge<Integer> ce3_6 = new Edge<>(4, cv3, cv6);
+    edges.add(ce3_6);
+    final Edge<Integer> ce5_6 = new Edge<>(5, cv5, cv6);
+    edges.add(ce5_6);
+    final Edge<Integer> ce4_5 = new Edge<>(6, cv4, cv5);
+    edges.add(ce4_5);
+
+    final Graph<Integer> digraph = new Graph<>(Graph.TYPE.DIRECTED, verticies, edges);
+
+    final List<Vertex<Integer>> results1 = TopologicalSort.sort(digraph);
+    System.out.println("Los elementos del Digrafo es");
+    System.out.println(digraph.toString());
+
+    System.out.println("Las aristas del digrafo");
+    System.out.println(digraph.getEdges().toString());
+
+    System.out.println("Topological sort. results="+results1);
+        
+    }
+    
+     public static void testKruskalUndirected() {
+        final UndirectedGraph undirected = new UndirectedGraph();
+        {
+            final CostPathPair<Integer> resultMST = Kruskal.getMinimumSpanningTree(undirected.graph);
+            {
+                // Ideal MST
+                final int cost = 35;
+                final List<Edge<Integer>> list = new ArrayList<>();
+                list.add(undirected.e1_7);
+                list.add(undirected.e1_8);
+                list.add(undirected.e1_2);
+                list.add(undirected.e1_3);
+                list.add(undirected.e3_6);
+                list.add(new Edge<>(9, undirected.v6, undirected.v5));
+                list.add(new Edge<>(6, undirected.v5, undirected.v4));
+                final CostPathPair<Integer> idealMST = new CostPathPair<>(cost, list);
+                System.out.println("Kruskal's minimum spanning tree. resultMST=" + resultMST + " idealMST=" + idealMST);
+                
+            }
+
+            // Kruskal on a graph with cycles
+            final List<Vertex<Integer>> cyclicVertices = new ArrayList<>();
+            final Vertex<Integer> cv1 = new Vertex<>(1);
+            cyclicVertices.add(cv1);
+            final Vertex<Integer> cv2 = new Vertex<>(2);
+            cyclicVertices.add(cv2);
+            final Vertex<Integer> cv3 = new Vertex<>(3);
+            cyclicVertices.add(cv3);
+            final Vertex<Integer> cv4 = new Vertex<>(4);
+            cyclicVertices.add(cv4);
+            final Vertex<Integer> cv5 = new Vertex<>(5);
+            cyclicVertices.add(cv5);
+
+            final List<Edge<Integer>> cyclicEdges = new ArrayList<>();
+            final Edge<Integer> ce1_2 = new Edge<>(3, cv1, cv2);
+            cyclicEdges.add(ce1_2);
+            final Edge<Integer> ce2_3 = new Edge<>(2, cv2, cv3);
+            cyclicEdges.add(ce2_3);
+            final Edge<Integer> ce3_4 = new Edge<>(4, cv3, cv4);
+            cyclicEdges.add(ce3_4);
+            final Edge<Integer> ce4_1 = new Edge<>(1, cv4, cv1);
+            cyclicEdges.add(ce4_1);
+            final Edge<Integer> ce4_5 = new Edge<>(1, cv4, cv5);
+            cyclicEdges.add(ce4_5);
+
+            final Graph<Integer> cyclicUndirected = new Graph<>(Graph.TYPE.UNDIRECTED, cyclicVertices, cyclicEdges);
+
+
+            final CostPathPair<Integer> pair4 = Kruskal.getMinimumSpanningTree(cyclicUndirected);
+            {
+                // Ideal MST
+                final int cost = 7;
+                final List<Edge<Integer>> list = new ArrayList<>();
+                list.add(new Edge<>(1, cv1, cv4));
+                list.add(ce4_5);
+                list.add(ce1_2);
+                list.add(ce2_3);
+                final CostPathPair<Integer> result4 = new CostPathPair<>(cost, list);
+                System.out.println("Kruskal's minimum spanning tree. pair4=" + pair4 + " result4=" + result4);                
+            }
+        }
+    }
+    public static void testPrimUndirected() {
+        final UndirectedGraph undirected = new UndirectedGraph();
+
+        Vertex<Integer> start = undirected.v1;
+        {
+            final CostPathPair<Integer> resultMST = Prim.getMinimumSpanningTree(undirected.graph, start);
+            {
+                // Ideal MST
+                final int cost = 35;
+                final List<Edge<Integer>> list = new ArrayList<>();
+                list.add(undirected.e1_7);
+                list.add(undirected.e1_8);
+                list.add(undirected.e1_2);
+                list.add(undirected.e1_3);
+                list.add(undirected.e3_6);
+                list.add(new Edge<>(9, undirected.v6, undirected.v5));
+                list.add(new Edge<>(6, undirected.v5, undirected.v4));
+                final CostPathPair<Integer> idealMST = new CostPathPair<>(cost, list);
+                System.out.println("Prim's minimum spanning tree error. resultMST="+resultMST+" idealMST="+idealMST);
+                
+            }
+
+            // Prim on a graph with cycles
+            final List<Vertex<Integer>> cyclicVerticies = new ArrayList<>();
+            final Vertex<Integer> cv1 = new Vertex<>(1);
+            cyclicVerticies.add(cv1);
+            final Vertex<Integer> cv2 = new Vertex<>(2);
+            cyclicVerticies.add(cv2);
+            final Vertex<Integer> cv3 = new Vertex<>(3);
+            cyclicVerticies.add(cv3);
+            final Vertex<Integer> cv4 = new Vertex<>(4);
+            cyclicVerticies.add(cv4);
+            final Vertex<Integer> cv5 = new Vertex<>(5);
+            cyclicVerticies.add(cv5);
+
+            final List<Edge<Integer>> cyclicEdges = new ArrayList<>();
+            final Edge<Integer> ce1_2 = new Edge<>(3, cv1, cv2);
+            cyclicEdges.add(ce1_2);
+            final Edge<Integer> ce2_3 = new Edge<>(2, cv2, cv3);
+            cyclicEdges.add(ce2_3);
+            final Edge<Integer> ce3_4 = new Edge<>(4, cv3, cv4);
+            cyclicEdges.add(ce3_4);
+            final Edge<Integer> ce4_1 = new Edge<>(1, cv4, cv1);
+            cyclicEdges.add(ce4_1);
+            final Edge<Integer> ce4_5 = new Edge<>(1, cv4, cv5);
+            cyclicEdges.add(ce4_5);
+
+            final Graph<Integer> cyclicUndirected = new Graph<>(Graph.TYPE.UNDIRECTED, cyclicVerticies, cyclicEdges);
+
+            start = cv1;
+
+            final CostPathPair<Integer> pair4 = Prim.getMinimumSpanningTree(cyclicUndirected, start);
+            {
+                // Ideal MST
+                final int cost = 7;
+                final List<Edge<Integer>> list = new ArrayList<>();
+                list.add(new Edge<>(1, cv1, cv4));
+                list.add(ce4_5);
+                list.add(ce1_2);
+                list.add(ce2_3);
+                final CostPathPair<Integer> result4 = new CostPathPair<>(cost, list);
+                System.out.println("Prim's minimum spanning tree error. pair4="+pair4+" result4="+result4);                
+            }
+        }
+    }
+  
 }

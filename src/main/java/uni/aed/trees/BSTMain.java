@@ -3,7 +3,38 @@ package uni.aed.trees;
 public class BSTMain {
     public static void main(String[] args){
         BSTMain bSTMain=new BSTMain();
-        bSTMain.insert();
+        bSTMain.insert02();
+        bSTMain.insert03();
+    }
+    private void insert02(){
+        BST tree=new BST();
+        tree.insert(15);
+        tree.insert(10);
+        tree.insert(5);
+        tree.insert(11);
+        tree.insert(12);
+        tree.insert(30);
+        tree.insert(20);
+        tree.insert(40);
+        System.out.println("\nRealizando eliminacion por fusion del nodo raiz: 15");
+        System.out.println(tree.root.toString());        
+        tree.deleteByMerging(15);
+        System.out.println(tree.root.toString());        
+    }
+    private void insert03(){
+        BST tree=new BST();
+        tree.insert(15);
+        tree.insert(10);
+        tree.insert(5);
+        tree.insert(4);
+        tree.insert(7);
+        tree.insert(30);
+        tree.insert(20);
+        tree.insert(40);
+        System.out.println("\nRealizando eliminacion por fusion del nodo raiz: 15");
+        System.out.println(tree.root.toString());        
+        tree.deleteByMerging(15);
+        System.out.println(tree.root.toString());        
     }
     private void insert(){
         BST tree=new BST();
